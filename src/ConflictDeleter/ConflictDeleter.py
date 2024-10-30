@@ -1,6 +1,6 @@
-from PyQt5.QtCore import QCoreApplication, qCritical, QDir, qDebug
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QMessageBox
+from PyQt6.QtCore import QCoreApplication, qCritical, QDir, qDebug
+from PyQt6.QtGui import QIcon
+from PyQt6.QtWidgets import QMessageBox
 
 import os
 import pathlib
@@ -70,9 +70,9 @@ class ConflictDeleter(mobase.IPluginTool):
                                       self.__tr("Delete Conflicts?"),
                                       self.__tr("Do you want to delete all files that are overwritten by higher priority mods?\n\n"
                                                 "Backup folder: {}").format(backup_mod_name),
-                                      QMessageBox.Yes | QMessageBox.No,
-                                      QMessageBox.No)
-        if (answer != QMessageBox.Yes):
+                                      QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                                      QMessageBox.StandardButton.No)
+        if (answer != QMessageBox.StandardButton.Yes):
             return False
 
         # Find files to delete
